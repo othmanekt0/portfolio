@@ -1,0 +1,1323 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KABBAJ Othmane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: 14px;
+        color: #111;
+        background: #fff;
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .page {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 60px 40px 120px;
+      }
+
+      /* Hero */
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 36px;
+      }
+      .hero-left h1 {
+        font-size: 26px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        letter-spacing: -0.3px;
+      }
+      .hero-left .tagline {
+        font-size: 15.5px;
+        font-weight: 400;
+        color: #111;
+        margin-bottom: 16px;
+        line-height: 1.55;
+        max-width: 580px;
+      }
+      .hero-left ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .hero-left ul li {
+        font-size: 13.5px;
+        color: #444;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .hero-left ul li::before {
+        content: "•";
+        color: #111;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 1px 6px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 500;
+        background: #fff;
+      }
+      .badge-orange {
+        border-color: #f5c97a;
+        background: #fffbf0;
+        color: #b45309;
+      }
+      .hero-avatar {
+        width: 170px;
+        height: 210px;
+        border-radius: 12px;
+        overflow: hidden;
+        flex-shrink: 0;
+        margin-left: 28px;
+        border: 1.5px solid #e5e5e5;
+      }
+      .hero-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      /* Section title */
+      .section-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 40px 0 16px;
+      }
+
+      /* Projects — top 2-col row */
+      .featured-grid-top {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      /* Projects — bottom full-width row */
+      .featured-grid-bottom {
+        display: block;
+      }
+
+      .feat-card {
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+        overflow: hidden;
+        display: block;
+        color: inherit;
+        transition: background 0.15s;
+      }
+      .feat-card:hover {
+        background: #fafafa;
+      }
+
+      /* Speny banner */
+      .feat-preview {
+        height: 108px;
+        overflow: hidden;
+        position: relative;
+      }
+      .feat-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+      }
+
+      /* FraudGraph banner */
+      .feat-preview-fraudgraph {
+        height: 108px;
+        background: #080810;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 22px;
+        position: relative;
+        overflow: hidden;
+      }
+      .feat-preview-fraudgraph::before {
+        content: "";
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.55) 0%,
+          rgba(139, 92, 246, 0.25) 45%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .fg-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: linear-gradient(
+          135deg,
+          #1e1b4b 0%,
+          #312e81 50%,
+          #4338ca 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow:
+          0 0 18px rgba(99, 102, 241, 0.5),
+          0 2px 8px rgba(0, 0, 0, 0.4);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* CCEE25 banner — green */
+      .feat-preview-ccee {
+        height: 108px;
+        background: linear-gradient(
+          135deg,
+          #052e16 0%,
+          #14532d 55%,
+          #16a34a 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 22px;
+        position: relative;
+        overflow: hidden;
+      }
+      .feat-preview-ccee::before {
+        content: "";
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 90px;
+        height: 90px;
+        background: radial-gradient(
+          circle,
+          rgba(74, 222, 128, 0.5) 0%,
+          rgba(34, 197, 94, 0.2) 50%,
+          transparent 70%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .ccee-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: linear-gradient(
+          135deg,
+          #166534 0%,
+          #15803d 50%,
+          #16a34a 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow:
+          0 0 18px rgba(74, 222, 128, 0.45),
+          0 2px 8px rgba(0, 0, 0, 0.4);
+        position: relative;
+        z-index: 1;
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: -0.5px;
+      }
+
+      .feat-icon-fg {
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #312e81, #4338ca);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .feat-icon-ccee {
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #15803d, #16a34a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 9px;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .feat-bottom {
+        padding: 10px 12px;
+        border-top: 1px solid #e5e5e5;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .feat-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .feat-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+      .feat-info {
+        flex: 1;
+      }
+      .feat-name {
+        font-size: 13px;
+        font-weight: 500;
+        color: #2563eb;
+      }
+      .feat-desc {
+        font-size: 11.5px;
+        color: #666;
+        line-height: 1.4;
+      }
+      .feat-arrow {
+        font-size: 12px;
+        color: #aaa;
+        margin-top: 2px;
+      }
+
+      /* Entries */
+      .entry {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 0;
+        border-top: 1px solid #f0f0f0;
+      }
+      .entry-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 1px solid #ececec;
+        background: #fafafa;
+      }
+      .entry-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 7px;
+      }
+      .entry-body {
+        flex: 1;
+      }
+      .entry-title {
+        font-size: 13.5px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+      .entry-badge {
+        font-size: 11px;
+        font-weight: 400;
+        color: #777;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 0 5px;
+      }
+      .entry-org {
+        font-size: 12.5px;
+        color: #777;
+      }
+      .entry-desc {
+        font-size: 12.5px;
+        color: #555;
+        line-height: 1.5;
+        margin-top: 2px;
+      }
+      .entry-date {
+        font-size: 12px;
+        color: #999;
+        white-space: nowrap;
+        padding-top: 2px;
+        flex-shrink: 0;
+      }
+
+      /* Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .skill-card {
+        border: 1px solid #f0f0f0;
+        border-radius: 10px;
+        padding: 12px 14px;
+      }
+      .skill-card.featured {
+        border-color: #bbf7d0;
+        background: #f0fdf4;
+        grid-column: span 2;
+      }
+      .skill-card-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .skill-icon {
+        font-size: 18px;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .skill-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #111;
+      }
+      .skill-card.featured .skill-title {
+        color: #15803d;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+      .skill-tag {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 500;
+        color: #555;
+        background: #f5f5f5;
+        border: 1px solid #ececec;
+        border-radius: 5px;
+        padding: 1px 7px;
+      }
+      .skill-card.featured .skill-tag {
+        background: #dcfce7;
+        border-color: #bbf7d0;
+        color: #166534;
+      }
+
+      /* Hobbies */
+      .hobbies-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .hobby-card {
+        border: 1px solid #f0f0f0;
+        border-radius: 10px;
+        padding: 12px 14px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .hobby-icon {
+        font-size: 22px;
+        flex-shrink: 0;
+        line-height: 1;
+      }
+      .hobby-title {
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 2px;
+      }
+      .hobby-desc {
+        font-size: 11.5px;
+        color: #777;
+        line-height: 1.4;
+      }
+      .goal-banner {
+        margin-top: 10px;
+        border: 1px solid #fde68a;
+        border-radius: 10px;
+        padding: 11px 14px;
+        background: #fffbeb;
+        font-size: 12.5px;
+        color: #92400e;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .goal-banner strong {
+        color: #78350f;
+      }
+      .achievement-banner {
+        margin-top: 8px;
+        border: 1px solid #d1fae5;
+        border-radius: 10px;
+        padding: 11px 14px;
+        background: #f0fdf4;
+        font-size: 12.5px;
+        color: #065f46;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .achievement-banner strong {
+        color: #064e3b;
+      }
+
+      /* Fixed floating social pill */
+      .social-pill-fixed {
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid #e5e5e5;
+        border-radius: 999px;
+        padding: 10px 20px;
+        box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.1),
+          0 1px 4px rgba(0, 0, 0, 0.06);
+        z-index: 50;
+      }
+      .social-pill-fixed a {
+        color: #555;
+        display: flex;
+        align-items: center;
+        transition: color 0.15s;
+      }
+      .social-pill-fixed a:hover {
+        color: #111;
+      }
+      .social-pill-fixed svg {
+        width: 18px;
+        height: 18px;
+      }
+      .social-pill-fixed .divider {
+        width: 1px;
+        height: 16px;
+        background: #ddd;
+      }
+      .lang-btn {
+        font-size: 13px;
+        font-weight: 500;
+        color: #555;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: color 0.15s;
+        font-family: inherit;
+      }
+      .lang-btn:hover {
+        color: #111;
+      }
+
+      /* Social popup */
+      .social-popup-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.18);
+        z-index: 100;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 48px;
+      }
+      .social-popup-overlay.open {
+        display: flex;
+      }
+      .social-popup {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 20px;
+        padding: 20px 20px 14px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.14);
+        min-width: 300px;
+        animation: popUp 0.22s ease;
+      }
+      @keyframes popUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .social-popup h3 {
+        font-size: 13px;
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 14px;
+      }
+      .popup-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .popup-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid #f0f0f0;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #111;
+        font-size: 13px;
+        font-weight: 500;
+        transition: background 0.12s;
+      }
+      .popup-link:hover {
+        background: #f5f5f5;
+      }
+      .popup-link svg {
+        width: 17px;
+        height: 17px;
+        flex-shrink: 0;
+      }
+      .popup-link-sub {
+        font-size: 11.5px;
+        color: #888;
+        font-weight: 400;
+      }
+      .popup-close {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+        padding: 9px;
+        border: 1px solid #eee;
+        border-radius: 9px;
+        font-size: 13px;
+        color: #777;
+        cursor: pointer;
+        background: none;
+        transition: background 0.12s;
+        font-family: inherit;
+      }
+      .popup-close:hover {
+        background: #f5f5f5;
+      }
+
+      /* Language */
+      [data-lang="fr"] .en-only {
+        display: none;
+      }
+      [data-lang="en"] .fr-only {
+        display: none;
+      }
+    </style>
+  </head>
+  <body data-lang="en">
+    <!-- Social popup -->
+    <div class="social-popup-overlay" id="socialOverlay">
+      <div class="social-popup">
+        <h3 class="fr-only">Me retrouver sur</h3>
+        <h3 class="en-only">Find me on</h3>
+        <div class="popup-links">
+          <a class="popup-link" href="mailto:kabbajothmane@gmail.com">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m2 7 10 7 10-7" />
+            </svg>
+            <div>
+              <div>Email</div>
+              <div class="popup-link-sub">kabbajothmane@gmail.com</div>
+            </div>
+          </a>
+          <a
+            class="popup-link"
+            href="https://github.com/kabbajothmane"
+            target="_blank"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 5.8c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+            <div>
+              <div>GitHub</div>
+              <div class="popup-link-sub">github.com/kabbajothmane</div>
+            </div>
+          </a>
+          <a
+            class="popup-link"
+            href="https://linkedin.com/in/kabbajothmane"
+            target="_blank"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.23 0z"
+              />
+            </svg>
+            <div>
+              <div>LinkedIn</div>
+              <div class="popup-link-sub">linkedin.com/in/kabbajothmane</div>
+            </div>
+          </a>
+        </div>
+        <button class="popup-close fr-only" onclick="closePopup()">
+          Fermer
+        </button>
+        <button class="popup-close en-only" onclick="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <div class="page">
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-left">
+          <h1>KABBAJ Othmane</h1>
+          <p class="tagline fr-only">
+            Ingénieur Data &amp; IA — J’aime créer des choses
+          </p>
+          <p class="tagline en-only">
+            Data &amp; AI Engineer — I like to build things.
+          </p>
+          <ul>
+            <li class="fr-only">
+              Fondateur de&nbsp;<a href="#"
+                ><span class="badge badge-orange">🪙 Speny</span></a
+              >
+            </li>
+            <li class="en-only">
+              Founder of&nbsp;<a href="#"
+                ><span class="badge badge-orange">🪙 Speny</span></a
+              >
+            </li>
+            <li class="fr-only">
+              Ingénierie Informatique, spécialisation Data &amp; IA — EMSI
+            </li>
+            <li class="en-only">
+              Computer Science Engineering, specialized in Data &amp; AI — EMSI
+            </li>
+            <li class="fr-only">
+              Ouvert aux opportunités en Data &amp; IA Engineering
+            </li>
+            <li class="en-only">
+              Open to Data &amp; AI Engineering opportunities
+            </li>
+          </ul>
+        </div>
+        <div class="hero-avatar"><img src="me.jpeg" alt="Othmane" /></div>
+      </div>
+
+      <!-- Featured Projects -->
+      <div class="section-title fr-only">Projets Phares</div>
+      <div class="section-title en-only">Featured Projects</div>
+
+      <!-- Top row: Speny + FraudGraph side by side -->
+      <div class="featured-grid-top">
+        <a class="feat-card" href="#">
+          <div class="feat-preview">
+            <img src="speny-banner (1).png" alt="Speny banner" />
+          </div>
+          <div class="feat-bottom">
+            <div class="feat-icon"><img src="logo.png" alt="Speny logo" /></div>
+            <div class="feat-info">
+              <div class="feat-name">Speny</div>
+              <div class="feat-desc fr-only">
+                App de finance personnelle IA — suivi intelligent, RAG
+                multi-agent, détection d'anomalies et prévision.
+              </div>
+              <div class="feat-desc en-only">
+                AI-native personal finance app — smart tracking, multi-agent RAG
+                advice, anomaly detection &amp; forecasting.
+              </div>
+            </div>
+            <div class="feat-arrow">↗</div>
+          </div>
+        </a>
+
+        <a class="feat-card" href="#">
+          <div class="feat-preview-fraudgraph">
+            <div class="fg-logo">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a5b4fc"
+                stroke-width="1.8"
+              >
+                <circle cx="12" cy="4" r="2.2" fill="rgba(165,180,252,0.2)" />
+                <circle cx="4" cy="20" r="2.2" fill="rgba(165,180,252,0.2)" />
+                <circle cx="20" cy="20" r="2.2" fill="rgba(165,180,252,0.2)" />
+                <line x1="12" y1="6.2" x2="4" y2="17.8" />
+                <line x1="12" y1="6.2" x2="20" y2="17.8" />
+                <line x1="6.2" y1="20" x2="17.8" y2="20" />
+              </svg>
+            </div>
+          </div>
+          <div class="feat-bottom">
+            <div class="feat-icon-fg">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a5b4fc"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="4" r="2" />
+                <circle cx="4" cy="20" r="2" />
+                <circle cx="20" cy="20" r="2" />
+                <line x1="12" y1="6" x2="4" y2="18" />
+                <line x1="12" y1="6" x2="20" y2="18" />
+                <line x1="4" y1="20" x2="20" y2="20" />
+              </svg>
+            </div>
+            <div class="feat-info">
+              <div class="feat-name">FraudGraph</div>
+              <div class="feat-desc fr-only">
+                Détection de fraude end-to-end avec Graph ML, Neo4j et tableau
+                de bord de scoring en temps réel.
+              </div>
+              <div class="feat-desc en-only">
+                End-to-end fraud detection with Graph ML, Neo4j graph DB, and
+                real-time risk scoring dashboard.
+              </div>
+            </div>
+            <div class="feat-arrow">↗</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Work -->
+      <div class="section-title fr-only">Expériences</div>
+      <div class="section-title en-only">Work</div>
+
+      <div class="entry">
+        <div class="entry-icon"><img src="ram_logo.png" alt="RAM" /></div>
+        <div class="entry-body">
+          <div class="entry-title">
+            Data Analyst <span class="entry-badge fr-only">Stage</span
+            ><span class="entry-badge en-only">Internship</span>
+          </div>
+          <div class="entry-org">Royal Air Maroc</div>
+          <div class="entry-desc fr-only">
+            POC 360° client &amp; performance vol — intégration de bases de
+            données, calcul de KPIs opérationnels et financiers par vol,
+            dashboards visuels (cartes, nuages de points, tendances) pour les
+            décideurs.
+          </div>
+          <div class="entry-desc en-only">
+            Built a 360° customer &amp; flight performance POC — integrated
+            multiple airline databases, computed operational &amp; financial
+            KPIs per flight, delivered visual dashboards (maps, scatter plots,
+            trend lines) for decision-makers.
+          </div>
+        </div>
+        <div class="entry-date">Sep 2025</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-icon">
+          <img src="career_center.jpg" alt="EMSI CC" />
+        </div>
+        <div class="entry-body">
+          <div class="entry-title">
+            Software Engineer - Process Automation & Analytics
+            <span class="entry-badge fr-only">Stage</span
+            ><span class="entry-badge en-only">Internship</span>
+          </div>
+          <div class="entry-org">EMSI Career Center</div>
+
+          <div class="entry-desc fr-only">
+            Conception de CCEE25, une solution full-stack dédiée à
+            l'automatisation du Forum Emploi. Mise en place de l'architecture de
+            données (SQL/NoSQL) garantissant l'intégrité des flux, développement
+            de dashboards analytiques en temps réel, et automatisation complète
+            de la génération de documents administratifs.
+          </div>
+
+          <div class="entry-desc en-only">
+            Architected CCEE25, a full-stack platform for the EMSI Employment
+            Forum. Engineered automated document generation workflows and
+            real-time KPI dashboards. Designed robust data models to ensure high
+            data integrity and implemented fine-grained role-based access
+            control (RBAC) for secure process management.
+          </div>
+        </div>
+        <div class="entry-date">Aug 2025</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-icon"><img src="xelops_logo.jpg" alt="Xelops" /></div>
+        <div class="entry-body">
+          <div class="entry-title">
+            R&amp;D Full Stack Developer
+            <span class="entry-badge fr-only">Stage</span
+            ><span class="entry-badge en-only">Internship</span>
+          </div>
+          <div class="entry-org">Xelops Technology</div>
+          <div class="entry-desc fr-only">
+            Co-développement d'une plateforme collaborative centralisant le
+            partage de contenu — React.js, Spring Boot, PostgreSQL.
+          </div>
+          <div class="entry-desc en-only">
+            Co-built a collaborative platform centralizing content sharing
+            across teams — React.js frontend, Spring Boot APIs, PostgreSQL.
+          </div>
+        </div>
+        <div class="entry-date">Jul 2025</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-icon"><img src="soraflex.jpg" alt="Soraflex" /></div>
+        <div class="entry-body">
+          <div class="entry-title">
+            Backend Developer <span class="entry-badge fr-only">Stage</span
+            ><span class="entry-badge en-only">Internship</span>
+          </div>
+          <div class="entry-org">SORAFLEX</div>
+          <div class="entry-desc fr-only">
+            Backend e-commerce — gestion des produits, authentification,
+            traitement des commandes et intégration API.
+          </div>
+          <div class="entry-desc en-only">
+            Built a custom e-commerce backend covering product management, user
+            authentication, and order processing with clean API integration.
+          </div>
+        </div>
+        <div class="entry-date">Sep 2024</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-icon"><img src="ram_logo.png" alt="RAM" /></div>
+        <div class="entry-body">
+          <div class="entry-title">
+            Frontend Developer <span class="entry-badge fr-only">Stage</span
+            ><span class="entry-badge en-only">Internship</span>
+          </div>
+          <div class="entry-org">Royal Air Maroc</div>
+          <div class="entry-desc fr-only">
+            Interfaces React.js responsives pour une application de gestion de
+            contrats juridiques, intégrant les APIs REST.
+          </div>
+          <div class="entry-desc en-only">
+            Built responsive React.js interfaces for a legal contract management
+            application, integrating REST APIs with the backend team.
+          </div>
+        </div>
+        <div class="entry-date">Sep 2023</div>
+      </div>
+
+      <!-- Education -->
+      <div class="section-title fr-only">Formation</div>
+      <div class="section-title en-only">Education</div>
+
+      <div class="entry">
+        <div class="entry-icon"><img src="emsi_logo.png" alt="EMSI" /></div>
+        <div class="entry-body">
+          <div class="entry-title">
+            École Marocaine Des Sciences De L'Ingénieur (EMSI)
+          </div>
+          <div class="entry-desc fr-only">
+            Ingénierie Informatique, spécialisation Data &amp; Intelligence
+            Artificielle
+          </div>
+          <div class="entry-desc en-only">
+            Computer Science Engineering, specialized in Data &amp; Artificial
+            Intelligence
+          </div>
+        </div>
+        <div class="entry-date">
+          2021 – <span class="fr-only">Présent</span
+          ><span class="en-only">Present</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-icon">
+          <img src="gomycode_logo.png" alt="GoMyCode" />
+        </div>
+        <div class="entry-body">
+          <div class="entry-title">GoMyCode</div>
+          <div class="entry-desc fr-only">
+            Certificat de spécialisation, Bootcamp Développement Web
+          </div>
+          <div class="entry-desc en-only">
+            Specialization Certificate, Web Development Bootcamp
+          </div>
+        </div>
+        <div class="entry-date">Feb – Jul 2023</div>
+      </div>
+
+     
+
+      <div class="section-title fr-only">Compétences</div>
+<div class="section-title en-only">Skills</div>
+
+<div class="skills-grid">
+  <div class="skill-card featured">
+    <div class="skill-card-header">
+      <span class="skill-icon">🧠</span>
+      <span class="skill-title fr-only">IA &amp; Data Science — Spécialité principale</span>
+      <span class="skill-title en-only">AI &amp; Data Science — Core Specialty</span>
+    </div>
+    <div class="skill-tags">
+      <span class="skill-tag">Machine Learning</span>
+      <span class="skill-tag">Deep Learning</span>
+      <span class="skill-tag">LLMs &amp; RAG</span>
+      <span class="skill-tag">LangChain / LlamaIndex</span> <span class="skill-tag">Vector DBs (Pinecone/Milvus)</span> <span class="skill-tag">PyTorch / TensorFlow</span>
+      <span class="skill-tag">MLOps (MLflow)</span>
+      <span class="skill-tag">Agentic AI &amp; Automation</span>
+      <span class="skill-tag">NLP</span>
+      <span class="skill-tag">Computer Vision</span>
+      <span class="skill-tag">Predictive Modeling</span>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-header">
+      <span class="skill-icon">⚙️</span>
+      <span class="skill-title fr-only">Data Eng &amp; Automatisation</span>
+      <span class="skill-title en-only">Data Eng &amp; Automation</span>
+    </div>
+    <div class="skill-tags">
+      <span class="skill-tag">ETL/ELT Pipelines</span>
+      <span class="skill-tag">Apache Airflow / Prefect</span> <span class="skill-tag">dbt (Data Build Tool)</span> <span class="skill-tag">Spark / Kafka</span>
+      <span class="skill-tag">SQL / NoSQL</span>
+      <span class="skill-tag">Data Warehousing (Snowflake)</span>
+      <span class="skill-tag">Data Validation (Great Expectations)</span> </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-header">
+      <span class="skill-icon">💻</span>
+      <span class="skill-title fr-only">Développement &amp; API</span>
+      <span class="skill-title en-only">Development &amp; API</span>
+    </div>
+    <div class="skill-tags">
+      <span class="skill-tag">Python (FastAPI / Flask)</span> <span class="skill-tag">Java / Spring Boot</span>
+      <span class="skill-tag">React / Angular</span>
+      <span class="skill-tag">REST &amp; GraphQL APIs</span>
+      <span class="skill-tag">PostgreSQL</span>
+      <span class="skill-tag">Unit Testing / Pytest</span>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-header">
+      <span class="skill-icon">☁️</span>
+      <span class="skill-title">Cloud &amp; DevOps</span>
+    </div>
+    <div class="skill-tags">
+      <span class="skill-tag">Docker &amp; Kubernetes</span> <span class="skill-tag">CI/CD (GitHub Actions)</span> <span class="skill-tag">AWS / Azure / GCP</span>
+      <span class="skill-tag">Terraform (IaC)</span>
+      <span class="skill-tag">Linux / Bash Scripting</span>
+      <span class="skill-tag">Git / GitHub</span>
+    </div>
+  </div>
+
+  <div class="skill-card">
+    <div class="skill-card-header">
+      <span class="skill-icon">🤝</span>
+      <span class="skill-title">Soft Skills</span>
+    </div>
+    <div class="skill-tags">
+      <span class="skill-tag fr-only">Communication Tech</span>
+      <span class="skill-tag en-only">Technical Storytelling</span>
+      <span class="skill-tag fr-only">Gestion de projet Agile</span>
+      <span class="skill-tag en-only">Agile Project Management</span>
+      <span class="skill-tag">Problem Solving</span>
+      <span class="skill-tag">Mentoring</span>
+    </div>
+  </div>
+</div>
+ <!-- Fun Stuff -->
+      <div class="section-title fr-only">Activités</div>
+      <div class="section-title en-only">Fun Stuff</div>
+
+      <div class="entry">
+        <div class="entry-icon">
+          <img src="career_center.jpg" alt="CCEMSI" />
+        </div>
+        <div class="entry-body">
+          <div class="entry-title fr-only">Ambassadeur Career Center</div>
+          <div class="entry-title en-only">Career Center Ambassador</div>
+          <div class="entry-org">Career Center EMSI</div>
+          <div class="entry-desc fr-only">
+            Équipe de gestion des 9e, 10e et 11e éditions de la Caravane de
+            l'Emploi et du Forum des Stages. Ambassadeur &amp; conseiller EMSI
+            aux Forums Internationaux des Étudiants 2024 et 2025.
+          </div>
+          <div class="entry-desc en-only">
+            Management team for the 9th, 10th &amp; 11th editions of the
+            Employment Caravan and the Internship Fair. EMSI ambassador &amp;
+            counselor at the International Student Forum 2024 and 2025.
+          </div>
+        </div>
+        <div class="entry-date">
+          Oct 2023 – <span class="fr-only">Présent</span
+          ><span class="en-only">Present</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-icon">
+          <img src="enactus_logo.jpg" alt="Enactus" />
+        </div>
+        <div class="entry-body">
+          <div class="entry-title fr-only">Membre d'équipe</div>
+          <div class="entry-title en-only">Team Member</div>
+          <div class="entry-org">Enactus EMSI Casablanca</div>
+          <div class="entry-desc fr-only">
+            Projets à impact social portés par l'entrepreneuriat au sein du
+            réseau international Enactus.
+          </div>
+          <div class="entry-desc en-only">
+            Worked on entrepreneurship-driven social impact projects as part of
+            the international Enactus network.
+          </div>
+        </div>
+        <div class="entry-date">Oct 2022 – Jun 2023</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-icon"><img src="aisec_logo.jpg" alt="AIESEC" /></div>
+        <div class="entry-body">
+          <div class="entry-title fr-only">
+            Participant – Hackathon WeCreate FinTech
+          </div>
+          <div class="entry-title en-only">
+            Participant – WeCreate FinTech Hackathon
+          </div>
+          <div class="entry-org">EMSI × AIESEC</div>
+          <div class="entry-desc fr-only">
+            Hackathon FinTech de 2 jours à l'EMSI Moulay Youssef, Casablanca.
+          </div>
+          <div class="entry-desc en-only">
+            Competed in a 2-day FinTech innovation hackathon at EMSI Moulay
+            Youssef, Casablanca.
+          </div>
+        </div>
+        <div class="entry-date">Jan 2025</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-icon"><img src="oracle.png" alt="Oracle" /></div>
+        <div class="entry-body">
+          <div class="entry-title fr-only">
+            Participant régulier – Ateliers mensuels Oracle
+          </div>
+          <div class="entry-title en-only">
+            Regular Attendee – Oracle Monthly Workshops
+          </div>
+          <div class="entry-org">Oracle</div>
+          <div class="entry-desc fr-only">
+            Ateliers techniques Oracle — cloud, data et IA.
+          </div>
+          <div class="entry-desc en-only">
+            Regularly attending Oracle's technical workshops on cloud, data, and
+            AI technologies.
+          </div>
+        </div>
+        <div class="entry-date fr-only">En cours</div>
+        <div class="entry-date en-only">Ongoing</div>
+      </div>
+      <!-- Hobbies -->
+      <div class="section-title fr-only">Loisirs</div>
+      <div class="section-title en-only">Hobbies</div>
+
+      <div class="hobbies-grid">
+        <div class="hobby-card">
+          <div class="hobby-icon">🏃</div>
+          <div>
+            <div class="hobby-title fr-only">Course à pied</div>
+            <div class="hobby-title en-only">Running</div>
+            <div class="hobby-desc fr-only">
+              Longues distances, construire l'endurance un km à la fois.
+            </div>
+            <div class="hobby-desc en-only">
+              Long-distance runs, building endurance one km at a time.
+            </div>
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="hobby-icon">🏋️</div>
+          <div>
+            <div class="hobby-title fr-only">Musculation</div>
+            <div class="hobby-title en-only">Bodybuilding</div>
+            <div class="hobby-desc fr-only">
+              Entraînement en force, chasser les PRs aussi fort que les
+              deadlines.
+            </div>
+            <div class="hobby-desc en-only">
+              Consistent strength training, chasing PRs as hard as deadlines.
+            </div>
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="hobby-icon">⚡</div>
+          <div>
+            <div class="hobby-title">CrossFit</div>
+            <div class="hobby-desc fr-only">
+              Entraînement fonctionnel haute intensité — zone de confort
+              interdite.
+            </div>
+            <div class="hobby-desc en-only">
+              High-intensity functional training — no comfort zone allowed.
+            </div>
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="hobby-icon">⚽</div>
+          <div>
+            <div class="hobby-title">Football</div>
+            <div class="hobby-desc fr-only">
+              Le sport qui m'a appris le travail d'équipe avant toute salle de
+              classe.
+            </div>
+            <div class="hobby-desc en-only">
+              The sport that taught me teamwork before any classroom did.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="achievement-banner">
+        <span style="font-size: 18px">🏅</span>
+        <div class="fr-only">
+          <strong>Récentes victoires :</strong> Terminé le
+          <strong>Semi-Marathon de Marrakech</strong> cette année · L'an
+          dernier, passé de <strong>119 kg → 83 kg</strong> grâce à une
+          transformation physique complète.
+        </div>
+        <div class="en-only">
+          <strong>Recent wins:</strong> Ran the
+          <strong>Marrakech Half Marathon</strong> this year · Last year went
+          from <strong>119 kg → 83 kg</strong> through a full body
+          transformation.
+        </div>
+      </div>
+
+      <div class="goal-banner">
+        <span style="font-size: 18px">🎯</span>
+        <div class="fr-only">
+          <strong>Prochains objectifs :</strong> Compléter un
+          <strong>Ironman</strong> et participer à une course
+          <strong>Hyrox</strong> — le test ultime du corps et de l'esprit.
+        </div>
+        <div class="en-only">
+          <strong>Next goals:</strong> Complete an
+          <strong>Ironman</strong> triathlon and compete in a
+          <strong>Hyrox</strong> race — the ultimate test of mind and body.
+        </div>
+      </div>
+    </div>
+    <!-- /.page -->
+
+    <!-- Fixed floating social pill -->
+    <div class="social-pill-fixed">
+      <a
+        href="#"
+        title="Email"
+        onclick="
+          openPopup();
+          return false;
+        "
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="m2 7 10 7 10-7" />
+        </svg>
+      </a>
+      <a href="https://github.com/kabbajothmane" title="GitHub" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.57v-2c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 5.8c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://linkedin.com/in/kabbajothmane"
+        title="LinkedIn"
+        target="_blank"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.23 0z"
+          />
+        </svg>
+      </a>
+      <div class="divider"></div>
+      <button class="lang-btn" onclick="toggleLang()">
+        <span class="fr-only">EN</span>
+        <span class="en-only">FR</span>
+      </button>
+    </div>
+
+    <script>
+      function openPopup() {
+        document.getElementById("socialOverlay").classList.add("open");
+      }
+      function closePopup() {
+        document.getElementById("socialOverlay").classList.remove("open");
+      }
+      document
+        .getElementById("socialOverlay")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closePopup();
+        });
+      function toggleLang() {
+        document.body.dataset.lang =
+          document.body.dataset.lang === "fr" ? "en" : "fr";
+      }
+    </script>
+  </body>
+</html>
